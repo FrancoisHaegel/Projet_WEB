@@ -1,0 +1,60 @@
+Articles:
+    type: entity
+    table: articles
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+        color:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        engine:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+        hp:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        maxSpeed:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: max_speed
+        price:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        picture:
+            type: string
+            nullable: false
+            length: 500
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,8 @@
+<div *ngFor="let item of panier | async">
+  <p>{{ item.name }} - {{ item.price }}$
+    <button type="button" class="btn btn-primary btn-sm" (click)="supprimerDuPanier(item)">Remove</button>
+  </p>
+</div>
+<div *ngIf="nbArticles != 0">
+  <button type="button" (click)="viderPanier()" class="btn btn-danger btn-sm" [routerLink]="['/']" [queryParams]="{commande: true}">Valider</button>
+</div>

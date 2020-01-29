@@ -1,0 +1,114 @@
+<div *ngIf="!validationOK" class="container">
+	<div class="form-group center-block">
+		<form [formGroup]="registerForm" (ngSubmit)="creerCompte()">
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<label for="lastName">LastName</label>
+					<input type="text" class="form-control" formControlName="lastName" id="lastName">
+					<div *ngIf="f.lastName.errors && validation" class="invalid-feedback d-block" fieldError>
+						Le champ Nom est requis.
+					</div>
+				</div>
+ 				<div class="col-md-6 mb-3">
+					<label for="firstName">FirstName</label>
+					<input type="text" class="form-control" formControlName="firstName" id="firstName">
+					<div *ngIf="f.firstName.errors && validation" class="invalid-feedback d-block" fieldError>
+						Le champ Prenom est requis.
+					  </div>
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label for="address">Address</label>
+				<input type="text" class="form-control" formControlName="address" id="address">
+				<div *ngIf="f.address.errors && validation" class="invalid-feedback d-block" fieldError>
+					Le champ Adresse est requis.
+				  </div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3 mb-3">
+					<label for="postalCode">Postal Code</label>
+					<input type="text" class="form-control" formControlName="postalCode" id="postalCode">
+					<div *ngIf="f.postalCode.errors && validation" class="invalid-feedback d-block" fieldError>
+						Le champ Code Postal est requis.
+					</div>
+				</div>
+				<div class="col-md-5 mb-3">
+					<label for="city">City</label>
+					<input type="text" class="form-control" formControlName="city" id="city">
+					<div *ngIf="f.city.errors && validation" class="invalid-feedback d-block" fieldError>
+						Le champ Ville est requis.
+					  </div>
+				</div>
+        <div class="col-md-4 mb-3">
+          <label for="country">Country</label>
+          <input type="text" class="form-control" formControlName="country" id="country">
+          <div *ngIf="f.country.errors && validation" class="invalid-feedback d-block" fieldError>
+            Le champ Ville est requis.
+          </div>
+        </div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<label for="phoneNumber">Phone Number</label>
+					<input type="text" class="form-control" formControlName="phoneNumber" id="phoneNumber">
+						<div *ngIf="f.phoneNumber.errors?.required && validation" class="invalid-feedback d-block" fieldError>
+							Le champ Telephone est requis.
+						</div>
+						<div *ngIf="f.phoneNumber.errors?.maxlength && validation" class="invalid-feedback d-block" fieldError>
+							10 caracteres pour le numero de telephone.
+						</div>
+						<div *ngIf="f.phoneNumber.errors?.minlength && validation" class="invalid-feedback d-block" fieldError>
+							10 caracteres pour le numero de telephone.
+						</div>
+				</div>
+
+				<div class="col-md-6 mb-3">
+					<label for="email">Email</label>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">@</span>
+						</div>
+
+						<input type="email" class="form-control" formControlName="email" id="email">
+						<div *ngIf="f.email.errors?.required && validation" class="invalid-feedback d-block" fieldError>
+							Le champ Email est requis.
+						</div>
+						<div *ngIf="f.email.errors?.email && validation" class="invalid-feedback d-block" fieldError>
+							Le champ Email n'est pas valide.
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr class="mb-4">
+
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<label for="password">Mot de Passe</label>
+					<input type="password" class="form-control" formControlName="password" id="password">
+					<div *ngIf="f.password.errors && validation" class="invalid-feedback d-block" fieldError>
+						Le champ Mot de Passe est requis.
+					  </div>
+				</div>
+				<div class="col-md-6 mb-3">
+					<label for="passwordVerification">Mot de Passe</label>
+					<input type="password" class="form-control" formControlName="passwordVerification" id="passwordVerification">
+					<div *ngIf="f.passwordVerification.errors?.required && validation" class="invalid-feedback d-block" fieldError>
+						Le champ Mot de Passe est requis.
+					</div>
+					<div *ngIf="f.passwordVerification.errors?.mustMatch && validation" class="invalid-feedback d-block" fieldError>
+						Le champ Mot de Passe n'est pas similaire.
+					</div>
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Valider</button>
+		</form>
+	</div>
+</div>
+
+<div *ngIf="validation && validationOK" class="container">
+	<!--<app-recapitulatif></app-recapitulatif>-->
+</div>

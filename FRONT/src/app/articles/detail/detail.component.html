@@ -1,0 +1,32 @@
+<div class="article-container row">
+  <div class="article-main">
+    <img class="product-picture" src="{{ article.picture }}">
+    <div class="product-desc">
+      <div class="product-name"> {{ article.name }}</div>
+      <div class="product-sub-desc">
+        <div class="product-attribut">
+          Engine : {{ article.engine }}
+        </div>
+        <div class="product-attribut">
+          Horse Power : {{ article.hp }} hp
+        </div>
+        <div class="product-attribut">
+          Max speed : {{ article.maxSpeed }} Mph
+        </div>
+        <div class="product-attribut">
+          Color : {{ article.color }}
+        </div>
+        <div class="product-attribut">
+          Price : ${{ article.price }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-attribut-description col-12">
+    {{ article.description }}
+  </div>
+  <div class="article-actions col-12">
+    <button type="button" (click)="addToShoppingKart(article)" class="btn-black">Add to Cart<i class="fa fa-long-arrow-right"></i></button>
+  </div>
+
+</div>

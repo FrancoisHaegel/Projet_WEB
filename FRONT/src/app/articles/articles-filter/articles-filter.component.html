@@ -1,0 +1,15 @@
+<h3>Filters list</h3>
+<div class="row">
+  <div class="col-md-3 mb-3">
+    <select class="selectpicker" data-style="btn-primary" [(ngModel)]="type" (change)="notifyParent()">
+      <option value="Color">Color</option>
+      <option value="Name">Name</option>
+      <option value="Speed">Faster than ...</option>
+      <option value="Power">More powerfull than ...</option>
+      <option value="Price">Cost lower than ...</option>
+    </select>
+  </div>
+  <div class="col-md-3 mb-3">
+    <input type="text" [(ngModel)]="inputFilter" name="inputFilter" (input)="notifyParent()">
+  </div>
+</div>
